@@ -2,7 +2,7 @@
 Test Repository for testing Decompression with Unity3d and test
 
 ## Prerequisites
-This Project uses a Third Libray called [LZ4 Native Plugins](https://www.assetstore.unity3d.com/en/#!/content/12674) from the asset store.
+This Project uses a Third Libray called [LZ4 Native Plugins](https://www.assetstore.unity3d.com/en/#!/content/12674) from the AssetStore.
 
 ## Known Problems
 
