@@ -1,0 +1,20 @@
+#NOTE: this will cause your collaborators to re-import assets periodically
+Temp/*
+Library/*
+Build/*
+# Ignore pidb, they are just code completion caching data according to:
+# http://stackoverflow.com/questions/1022111/what-are-monodevelops-pidb-files
+*.pidb
+*.userprefs
+# Ignore Virtual Studio and MonoDevelop project files
+# (Can be regenerated locally via "Assets -> Sync MonoDevelop Project")
+*.sln
+*.csproj
+# Ignore Visual Studio generated migration reports
+_UpgradeReport_Files/*
+UpgradeLog*.htm
+UpgradeLog*.XML
+# Ignore Visual Studio generated obj/ folder
+obj/*
+# Ignore Visual Studio binaries #
+*.suo
