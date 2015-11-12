@@ -37,7 +37,7 @@ public class Test : MonoBehaviour {
           isDecompressing = true;
           Decompression();
         }
-      } 
+      }
     } else {
       if(GUI.Button(new Rect(50, 50, 250, 100), "Start Download")) {
         if(File.Exists(applicationPath + "/" + fileName)) File.Delete(applicationPath + "/" + fileName);
@@ -55,9 +55,9 @@ public class Test : MonoBehaviour {
 
   private void reportProgress() {
     #if UNITY_iOS
-      while( lzma.getProgressCount() >= 0 && lzma.getProgressCount() < 10) {
-        logText = "Decompression Progression: " + lzma.getProgressCount();
-        Debug.Log("Decompression Progression iOS: " + lzma.getProgressCount());
+      while( lzma.getProgressCount2() >= 0 && lzma.getProgressCount2() < 1000) {
+        logText = "Decompression Progression iOS: " + lzma.getProgressCount2();
+        Debug.Log("Decompression Progression iOS: " + lzma.getProgressCount2());
       }
     #else
     while(progress >= 0) {
@@ -69,8 +69,11 @@ public class Test : MonoBehaviour {
 
   private void threadedDecompressionFunction() {
     if(!Directory.Exists(applicationPath + "/extractionFolder")) Directory.CreateDirectory(applicationPath + "/extractionFolder");
+    #if UNITY_iOS
+    lzma.setProgressCount2();
+    #endif
     res = lzma.doDecompress7zip(applicationPath + "/" + fileName, applicationPath + "/extractionFolder/", ref progress, isLargeFile);
-    Debug.Log("Decomporess Status: " + res);
+    Debug.Log("Decompress Status: " + res);
     progress = -1;
   }
 
