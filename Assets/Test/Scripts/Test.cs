@@ -13,7 +13,7 @@ public class Test : MonoBehaviour {
   private bool isFirstTime = true;
   private bool isDownloadFinished = false;
   private bool isDecompressing = false;
-  private bool isLargeFile = false;
+  private bool isLargeFile = true;
 
   private int progress;
   private int res;
