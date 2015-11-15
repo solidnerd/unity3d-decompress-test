@@ -61,7 +61,6 @@ public class Test : MonoBehaviour {
     #else
     while(progress >= 0) {
         logText = "Decompression Progression: " + progress.ToString();
-        Debug.Log("Decompression Progression: " + progress.ToString());
       }
     #endif
   }
