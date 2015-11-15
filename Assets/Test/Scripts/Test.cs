@@ -55,9 +55,8 @@ public class Test : MonoBehaviour {
 
   private void reportProgress() {
     #if UNITY_iOS
-      while( lzma.getProgressCount2() >= 0 && lzma.getProgressCount2() < 1000) {
-        logText = "Decompression Progression iOS: " + lzma.getProgressCount2();
-        Debug.Log("Decompression Progression iOS: " + lzma.getProgressCount2());
+      while(lzma.getProgressCount() >= 0 && lzma.getProgressCount() <= 648) {
+        logText = "Decompression Progression iOS: " + lzma.getProgressCount().ToString();
       }
     #else
     while(progress >= 0) {
