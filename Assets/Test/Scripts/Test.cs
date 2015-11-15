@@ -68,7 +68,7 @@ public class Test : MonoBehaviour {
   private void threadedDecompressionFunction() {
     if(!Directory.Exists(applicationPath + "/extractionFolder")) Directory.CreateDirectory(applicationPath + "/extractionFolder");
     res = lzma.doDecompress7zip(applicationPath + "/" + fileName, applicationPath + "/extractionFolder/", ref progress, isLargeFile);
-    Debug.Log("Decompress Status: " + res);
+    logText = "Decompress Status: " + res.ToString();
     progress = -1;
   }
 
