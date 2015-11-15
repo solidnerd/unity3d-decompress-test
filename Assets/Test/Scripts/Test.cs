@@ -3,7 +3,6 @@ using System.IO;
 using System.Threading;
 using UnityEngine;
 
-
 public class Test : MonoBehaviour {
 
   private string applicationPath;
@@ -15,7 +14,7 @@ public class Test : MonoBehaviour {
   private bool isDecompressing = false;
   private bool isLargeFile = true;
 
-  private int progress;
+  private int[] progressValue = new int[1];
   private int res;
 
   private string logText;
@@ -54,22 +53,16 @@ public class Test : MonoBehaviour {
   }
 
   private void reportProgress() {
-    #if UNITY_IOS && !UNITY_EDITOR
-      while(lzma.getProgressCount() >= 0 && lzma.getProgressCount() <= 648) {
-        logText = "Decompression Progression iOS: " + lzma.getProgressCount().ToString();
-      }
-    #else
-    while(progress >= 0) {
-        logText = "Decompression Progression: " + progress.ToString();
-      }
-    #endif
+    while(progress() >= 0) {
+        logText = "Decompression Progression: " + progress().ToString();
+     }
   }
 
   private void threadedDecompressionFunction() {
     if(!Directory.Exists(applicationPath + "/extractionFolder")) Directory.CreateDirectory(applicationPath + "/extractionFolder");
-    res = lzma.doDecompress7zip(applicationPath + "/" + fileName, applicationPath + "/extractionFolder/", ref progress, isLargeFile);
+    res = lzma.doDecompress7zip(applicationPath + "/" + fileName, applicationPath + "/extractionFolder/", progressValue, isLargeFile);
     logText = "Decompress Status: " + res.ToString();
-    progress = -1;
+    progressValue[0] = -1;
   }
 
   private IEnumerator downloadFile() {
@@ -91,6 +84,10 @@ public class Test : MonoBehaviour {
       }
       logText = "";
     }
+  }
+
+  private int progress(){
+    return progressValue[0];
   }
 
 }
