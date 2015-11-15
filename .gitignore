@@ -18,3 +18,4 @@ UpgradeLog*.XML
 obj/*
 # Ignore Visual Studio binaries #
 *.suo
+iOS/
