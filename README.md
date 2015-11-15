@@ -5,9 +5,7 @@ Test Repository for testing decompression with Unity3d and [LZ4 Native Plugins](
 This Project uses a Third Libray called [LZ4 Native Plugins](https://www.assetstore.unity3d.com/en/#!/content/12674) from the [AssetStore](https://www.assetstore.unity3d.com/en/).
 
 ## Known Problems
-
-### ProgressCount() Method doesn't work under iOS
-At the moment the ProgressCount returns every time 0.
+Nothing at the moment :)
 
 ## Getting Started
 1. Checkout the Project
